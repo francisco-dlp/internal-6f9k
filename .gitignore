@@ -37,3 +37,6 @@ binder/overrides.json
 
 # Hyperspy
 hyperspy_*.log
+
+# Tool / editor state
+.omo/
