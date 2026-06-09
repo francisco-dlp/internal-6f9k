@@ -97,6 +97,20 @@ def _():
     return hs, mo, np, plt
 
 
+@app.cell(hide_code=True)
+def _(mo):
+    import os
+    import urllib.request
+
+    data_path = "datasets/CuZn_EELS_mapping_tutorial.hspy"
+    if not os.path.exists(data_path):
+        os.makedirs(os.path.dirname(data_path), exist_ok=True)
+        url = "https://raw.githubusercontent.com/francisco-dlp/jeels2026_workshop/main/notebooks/2%20-%20EELS/datasets/CuZn_EELS_mapping_tutorial.hspy"
+        urllib.request.urlretrieve(url, data_path)
+        print(f"Downloaded dataset to {data_path}")
+    return
+
+
 @app.cell
 def _():
     # Load the "datasets/CuZn_EELS_mapping_tutorial.hspy"

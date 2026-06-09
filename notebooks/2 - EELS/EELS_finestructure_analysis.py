@@ -69,6 +69,21 @@ def _():
 
 @app.cell(hide_code=True)
 def _(mo):
+    import os
+    import urllib.request
+
+    for data_path in ["datasets/LSMO_linescan.hspy", "datasets/LSMO_linescan_low_loss.hspy"]:
+        if not os.path.exists(data_path):
+            os.makedirs(os.path.dirname(data_path), exist_ok=True)
+            filename = os.path.basename(data_path)
+            url = f"https://raw.githubusercontent.com/francisco-dlp/jeels2026_workshop/main/notebooks/2%20-%20EELS/datasets/{filename}"
+            urllib.request.urlretrieve(url, data_path)
+            print(f"Downloaded dataset to {data_path}")
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
     mo.md(r"""
     # 1. Specimen & Data
 
